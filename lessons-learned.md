@@ -1,18 +1,18 @@
 # Lessons Learned
 
 ## What Went Well
-- Alerts were generated quickly
-- Logs clearly showed scanning behavior
-- Easy correlation between Suricata and Zeek
+- Successfully captured live network traffic
+- Applied filters to isolate relevant packets
+- Identified key packet attributes (source, destination, protocol)
 
 ## Challenges
-- Understanding log formats initially
-- Identifying relevant fields in large datasets
+- Initial difficulty capturing observable traffic on loopback interface
+- Understanding correct use of display filters in Wireshark
 
 ## Improvements
-- Create custom dashboards for faster detection
-- Tune alerts to reduce noise
-- Automate correlation where possible
+- Expand scenarios to include additional protocols (TCP, DNS, HTTP)
+- Simulate more complex traffic patterns
+- Incorporate multiple systems for realistic attack simulation
 
 ## Takeaway
-Early detection of reconnaissance activity is critical in preventing further attacks. Strong visibility into network traffic enables faster and more accurate analysis.
+Understanding normal network behavior is essential for detecting anomalies. This exercise reinforced foundational SOC analyst skills, including traffic capture, filtering, and packet analysis.

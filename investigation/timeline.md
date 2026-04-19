@@ -2,12 +2,12 @@
 
 | Time       | Event Description |
 |------------|------------------|
-| 14:02:10   | Nmap scan initiated from 192.168.1.10 |
-| 14:02:12   | First connection attempts detected |
-| 14:02:15   | Suricata generates port scan alert |
-| 14:02:18   | Zeek logs multiple port probes |
-| 14:03:00   | Scan activity completed |
-| 14:05:00   | Analyst begins investigation |
+| 17:15:00   | Wireshark capture started on eth0 |
+| 17:15:10   | ICMP traffic initiated using ping command |
+| 17:15:11   | First ICMP echo request observed |
+| 17:15:11   | ICMP echo reply received from 8.8.8.8 |
+| 17:15:12+  | Continuous ICMP traffic observed |
+| 17:17:00   | Analyst reviewed packet details |
 
 ## Summary
-The scan occurred over a short period and targeted multiple ports, indicating automated reconnaissance activity.
+Traffic occurred in real-time with consistent request/response behavior, indicating normal network connectivity.

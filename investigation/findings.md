@@ -1,30 +1,33 @@
 # Investigation Findings
 
-## Alert Overview
-Security Onion generated alerts indicating potential port scanning activity originating from 192.168.1.10.
+## Summary
+During analysis, ICMP traffic was observed between the local system and an external host (8.8.8.8). The activity consisted of repeated echo requests and echo replies, consistent with a standard ping operation.
 
-## Evidence Reviewed
-- Suricata alerts flagged scanning behavior
-- Zeek logs showed repeated connection attempts to multiple ports
+## Evidence
+- Wireshark capture on interface `eth0`
+- Display filter: `icmp`
+- Continuous packet exchange between:
+  - Source: 192.168.239.128
+  - Destination: 8.8.8.8
 
-## Key Observations
-- High number of connection attempts in a short time period
-- Sequential port access pattern
-- No successful session establishment
+## Observations
+- Regular interval of packet transmission
+- Bidirectional communication (request and reply)
+- No anomalies in packet structure
+- Consistent packet size (~98 bytes)
 
 ## Analysis
-The traffic pattern is consistent with a TCP SYN scan:
-- Rapid probing of multiple ports
-- Partial connections (SYN without full handshake)
-- Behavior aligns with reconnaissance techniques
+The observed traffic matches expected ICMP behavior:
+- Echo Request: Sent from local system
+- Echo Reply: Returned from external host
+
+This indicates successful network communication and confirms proper packet flow through the network interface.
 
 ## Conclusion
-The activity was identified as a port scan initiated by the attacker machine. This is commonly used as a precursor to exploitation.
+The activity is identified as legitimate ICMP traffic generated for testing purposes. No malicious behavior was detected.
 
 ## Severity Assessment
-Low to Medium (Reconnaissance phase, no exploitation observed)
+Low (benign network activity)
 
-## Recommended Actions
-- Monitor source IP for further activity
-- Block suspicious IP if repeated behavior occurs
-- Investigate for additional related alerts
+## Analyst Note
+This scenario demonstrates the ability to capture, filter, and analyze live network traffic, which is a core responsibility of a SOC analyst.

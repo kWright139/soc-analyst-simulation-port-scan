@@ -1,37 +1,36 @@
-# SOC Analyst Simulation: Port Scan Investigation
+# SOC Analyst Simulation: Network Traffic Analysis
 
 ## Overview
-This project simulates a Security Operations Center (SOC) analyst investigating a potential reconnaissance attack in a controlled lab environment. A port scan was conducted from an attacker machine, and alerts/logs were analyzed using Security Onion.
+This project simulates a Security Operations Center (SOC) analyst monitoring and analyzing live network traffic in a controlled lab environment. Traffic was generated and captured using Kali Linux and Wireshark, then analyzed to understand protocol behavior and communication patterns.
 
 ## Tools Used
-- Security Onion
+- Wireshark
 - Kali Linux
-- Nmap
-- Zeek
-- Suricata
+- ICMP (Ping traffic generation)
 
 ## Lab Environment
-- Attacker: Kali Linux (192.168.1.10)
-- Target: Ubuntu VM (192.168.1.20)
-- Monitoring: Security Onion
+- Platform: VMware Workstation Pro
+- System: Kali Linux VM
+- Network Mode: NAT
 
 ## Scenario Summary
-An Nmap TCP SYN scan was launched from the attacker machine targeting the victim system. Security Onion detected suspicious activity and generated alerts, which were investigated to determine intent and impact.
+ICMP traffic was generated using a continuous ping to an external host (8.8.8.8). Wireshark was used to capture and filter this traffic, allowing analysis of packet structure, communication flow, and protocol behavior.
 
 ## Skills Demonstrated
-- Alert triage
-- Network traffic analysis
-- Log analysis (Zeek & Suricata)
-- Incident timeline creation
-- IOC identification
-- Security documentation
+- Network traffic capture
+- Packet filtering (Wireshark display filters)
+- Protocol analysis (ICMP)
+- Source and destination identification
+- Packet inspection
+- Security-focused documentation
 
 ## Key Findings
-- Source IP: 192.168.1.10
-- Destination IP: 192.168.1.20
-- Activity: TCP SYN scan (reconnaissance)
-- Detection: Suricata alert + Zeek connection logs
-- Conclusion: Malicious scanning behavior consistent with pre-attack reconnaissance
+- Source IP: 192.168.239.128
+- Destination IP: 8.8.8.8
+- Protocol: ICMP
+- Activity: Continuous echo request/reply communication
+- Detection Method: Wireshark capture with ICMP filter
+- Conclusion: Observed traffic was consistent with normal network connectivity testing
 
 ## Project Structure
 soc-analyst-simulation-port-scan/
@@ -39,11 +38,19 @@ soc-analyst-simulation-port-scan/
 ├── scenario/
 ├── investigation/
 ├── evidence/
+│ └── screenshots/
 ├── detection/
 └── lessons-learned.md
 
+## 📸 Screenshots
+
+### Traffic Capture
+![Wireshark Capture](evidence/screenshots/capture-running.png)
+
+### ICMP Analysis
+![ICMP Analysis](evidence/screenshots/icmp-analysis.png)
 
 ## 🧠 Conclusion
-This activity represents early-stage reconnaissance often used by attackers to identify open ports and services. Proper detection and response at this stage can prevent further exploitation.
+This project demonstrates foundational SOC analyst skills, including capturing live traffic, filtering relevant data, and analyzing packet-level communication. Understanding normal network behavior is essential for identifying anomalies in real-world security operations.
 
 ---

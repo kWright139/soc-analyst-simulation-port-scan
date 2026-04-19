@@ -1,15 +1,16 @@
 # Detection Notes
 
-## Suricata Alerts
-- Alert Type: Port Scan Detection
-- Signature: ET SCAN Nmap SYN Scan
+## Tool Used
+Wireshark (Network Protocol Analyzer)
 
-## Zeek Logs
-- Multiple connection attempts recorded
-- High volume of connections from single source IP
+## Detection Method
+- Live packet capture on `eth0`
+- Display filter applied: `icmp`
 
-## Detection Summary
-Both Suricata and Zeek provided strong indicators of scanning behavior. Correlation between tools confirmed malicious intent.
+## Key Observations
+- Clear identification of ICMP packets
+- Visibility into source and destination IP addresses
+- Ability to inspect packet structure and payload
 
-## Analyst Notes
-Cross-referencing alerts with logs improves confidence in detection and reduces false positives.
+## Analyst Insight
+Filtering traffic by protocol significantly improves visibility and reduces noise, allowing analysts to focus on relevant data during investigations.
