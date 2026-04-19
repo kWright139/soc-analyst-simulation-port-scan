@@ -42,7 +42,7 @@ soc-analyst-simulation-port-scan/
 ├── detection/
 └── lessons-learned.md
 
-## 📸 Screenshots
+## Screenshots
 
 ### Traffic Capture
 ![Wireshark Capture](evidence/screenshots/capture-running.png)
@@ -50,7 +50,7 @@ soc-analyst-simulation-port-scan/
 ### ICMP Analysis
 ![ICMP Analysis](evidence/screenshots/icmp-analysis.png)
 
-## 🧠 Conclusion
+## Conclusion
 This project demonstrates foundational SOC analyst skills, including capturing live traffic, filtering relevant data, and analyzing packet-level communication. Understanding normal network behavior is essential for identifying anomalies in real-world security operations.
 
 ---
